@@ -1,0 +1,48 @@
+  502  mkdir 'linux lecture' && touch notes.txt
+  503  ls
+  504  cp notes.txt linux\ lecture/
+  505  ls linux\ lecture/
+  506  ls
+  507  ls -l
+  508  ls -lsr ~
+  509  ls -lar ~
+  510  mv notes.txt new_notes.txt
+  511  ls
+  512  rm new_notes.txt linux\ lecture/notes.txt 
+  513  ls
+  514  mv linux\ lecture linux_lecture
+  515  ls
+  516  cd linux_lecture/
+  517  touch --help
+  518  touch homework.sh
+  519  ls
+  520  touch -mt 202001010415 homework.sh
+  521  ls -l --full-time 
+  522  stat homework.sh 
+  523  touch hw.sh hw1.sh hw2.sh hw1.txt
+  524  ls --help
+  525  ls *.txt
+  526  touch astxt
+  527  ls *.txt
+  528  rm astxt 
+  529  mkdir lecture_new && cp *.txt lecture_new/
+  530  ls
+  531  ls lecture_new/
+  532  echo "echo 'linux lecture'" > homework.sh 
+  533  cat homework.sh 
+  534  chmod --help
+  535  ls -l
+  536  ls -lh
+  537  chmod u=w homework.sh 
+  538  ls -l
+  539  cat homework.sh 
+  540  chmod u=rwx homework.sh 
+  541  ls -l
+  542  cat homework.sh 
+  543  sh homework.sh 
+  544  subl homework.sh 
+  545  head --help
+  546  head -7 homework.sh 
+  547  touch notes.sh && echo ls > notes.sh && chmod +x notes.sh
+  548  ls -l
+  549  sh notes.sh 

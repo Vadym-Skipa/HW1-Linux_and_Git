@@ -1,0 +1,128 @@
+1. Create `linux_lecture` directory and notes.txt file
+	mkdir 'linux lecture' && touch notes.txt
+
+2. Copy notes.txt file to linux_lecture directory
+	cp notes.txt linux\ lecture/
+
+3. List the files in the current directory, in “long listing format”.
+	ls -l
+
+	output:
+	drwxrwxr-x 2 vadym vadym 4096 Apr 28 16:11 'linux lecture'
+	-rw-rw-r-- 1 vadym vadym    0 Apr 28 16:11  notes.txt
+
+
+4. List all files, including hidden files, in the your home (~) directory, in reverse alphabetical order and long listing format.
+	ls -lar ~
+
+	output:
+	drwxr-xr-x  2 vadym vadym  4096 Mar  6 13:02 Videos
+	drwx------  6 vadym vadym  4096 Mar  6 13:29 .thunderbird
+	drwxr-xr-x  2 vadym vadym  4096 Mar  6 13:02 Templates
+	-rw-r--r--  1 vadym vadym     0 Mar  6 13:57 .sudo_as_admin_successful
+	drwx------  2 vadym vadym  4096 Feb 20 17:30 .ssh
+	drwxr-xr-x  9 vadym vadym  4096 Mar 12 14:54 snap
+	-rw-rw-r--  1 vadym vadym  3785 Apr 28 14:44 .quarry
+	drwxrwxr-x  3 vadym vadym  4096 Mar  7 18:10 PycharmProjects
+	drwxr-xr-x  2 vadym vadym  4096 Mar  6 13:02 Public
+	-rw-r--r--  1 vadym vadym   807 Mar  6 11:21 .profile
+	drwx------  3 vadym vadym  4096 Mar  6 14:20 .pki
+	drwxr-xr-x  2 vadym vadym  4096 Apr 22 18:28 Pictures
+	-rw-r--r--  1 vadym vadym   306 Apr 28 15:54 .pam_environment
+	drwxr-xr-x  2 vadym vadym  4096 Mar  6 13:02 Music
+	drwx------  5 vadym vadym  4096 Mar  6 13:14 .mozilla
+	drwxr-xr-x  3 vadym vadym  4096 Mar  6 13:02 .local
+	-rw-rw-r--  1 vadym vadym  2440 Apr 13 18:28 java_error_in_pycharm_4973.log
+	-rw-rw-r--  1 vadym vadym  2439 Apr 20 08:01 java_error_in_pycharm_4496.log
+	drwxrwxr-x  4 vadym vadym  4096 Mar  7 18:09 .java
+	drwx------  3 vadym vadym  4096 Apr  6 17:39 .gnupg
+	-rw-rw-r--  1 vadym vadym    56 Mar 11 15:54 .gitconfig
+	drwxr-xr-x  3 vadym vadym  4096 Apr 23 10:34 Downloads
+	drwxr-xr-x  6 vadym vadym  4096 Apr 28 15:28 Documents
+	drwxr-xr-x  2 vadym vadym  4096 Mar  6 13:02 Desktop
+	drwxr-xr-x 24 vadym vadym  4096 Apr 28 15:11 .config
+	drwxr-xr-x 23 vadym vadym  4096 Apr 23 11:04 .cache
+	-rw-r--r--  1 vadym vadym  3771 Mar  6 11:21 .bashrc
+	-rw-r--r--  1 vadym vadym   220 Mar  6 11:21 .bash_logout
+	-rw-------  1 vadym vadym 14755 Apr 28 15:55 .bash_history
+	drwxr-xr-x  4 root  root   4096 Mar  6 11:21 ..
+	drwxr-xr-x 21 vadym vadym  4096 Apr 28 15:54 .
+
+
+5*. Rename the file notes.txt to new_notes.txt
+	mv notes.txt new_notes.txt
+
+6. Remove the files linux_lecture/notes.txt and new_notes.txt. Note that your answer must be a single command and not multiple commands.
+	rm new_notes.txt linux\ lecture/notes.txt 
+
+Create homework.sh file under linux_lecture directory
+	cd linux_lecture/
+	touch homework.sh
+
+7*. Set the file homework.sh to have a last-modified date of January 1, 2020, 4:15am.
+	touch -mt 202001010415 homework.sh
+
+Create hw.sh, hw1.sh, hw2.sh, hw1.txt under the linux_lecture directory
+	touch hw.sh hw1.sh hw2.sh hw1.txt
+
+8. Find all the files only with the extension .txt in the current directory.
+	ls *.txt
+
+	output:
+	hw1.txt
+
+9. Copy all the text files (files whose names end with .txt) from the current folder to the new directory `lecture_new`
+	mkdir lecture_new && cp *.txt lecture_new/
+
+10. Write `echo 'linux_lecture'` to the homework.sh file by using echo.
+	echo "echo 'linux lecture'" > homework.sh 
+
+11. Display the contents of homework.sh
+	cat homework.sh 
+
+	output:
+	echo 'linux lecture'
+
+12. Change the permissions to just write for current user and try to Display contents again.
+	chmod u=w homework.sh 
+	cat homework.sh 
+
+	output:
+	cat: homework.sh: Permission denied
+
+13. Change the permission to rwx for current user only and try again.
+	chmod u=rwx homework.sh 
+	cat homework.sh 
+
+	output:
+	echo 'linux lecture'
+
+13a. Execute the homework.sh
+	sh homework.sh 
+
+	output:
+	linux lecture
+
+14. Write from 1 to 10 in each line in homework.sh by using text reader.
+	subl homework.sh 
+
+15. Display only the first 7 lines of the file homework.sh from the current directory on the terminal.
+	head -7 homework.sh 
+
+	output:
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+
+16*. Create notes.sh with `ls` and make it executable
+	touch notes.sh && echo ls > notes.sh && chmod +x notes.sh
+
+17*. Execute notes.sh
+	sh notes.sh 
+
+	output:
+	homework.sh  hw1.sh  hw1.txt  hw2.sh  hw.sh  lecture_new  notes.sh
