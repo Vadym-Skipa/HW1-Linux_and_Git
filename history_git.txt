@@ -1,0 +1,56 @@
+  610  mkdir cursor
+  611  ls
+  612  cd cursor/
+  613  touch first.py
+  614  git status
+  615  git add .
+  616  git status
+  617  git restore .
+  618  git status
+  619  git restore first.py
+  620  git status
+  621  git restore --staged first.py
+  622  git status
+  623  git add first.py 
+  624  git status
+  625  git commit -m 'adding first.py'
+  626  git log
+  627  touch second.py
+  628  git add second.py 
+  629  git commit -m 'adding second.py'
+  630  rm first.py 
+  631  git status
+  632  git add first.py 
+  633  git status
+  634  git commit -m 'removing first.py'
+  635  git log
+  636  git push origin 
+  637  git push origin master 
+  638  git branch first
+  639  git branch
+  640  git checkout -b second
+  641  echo "print('Hello')" > second.py 
+  642  cat second.py 
+  643  git stash
+  644  git checkout first
+  645  git checkout second && git stash pop
+  646  git add second.py 
+  647  git commit -m 'Changing second.py'
+  648  git push origin second 
+  649  git checkout first
+  650  echo print("Cursor") > second.py 
+  651  echo 'print("Cursor")' > second.py 
+  652  git add second.py 
+  653  git commit -m 'Changing second.py'
+  654  git push origin first 
+  655  git checkout master 
+  656  git merge --help
+  657  git merge second 
+  658  cat second.py 
+  659  git merge first 
+  660  subl second.py 
+  661  git commit -m 'resolving conflict'
+  662  git status
+  663  git add second.py 
+  664  git commit -m 'resolving conflict'
+  665  git push origin master 

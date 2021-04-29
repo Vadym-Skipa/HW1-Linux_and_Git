@@ -1,0 +1,244 @@
+1. Create a folder called cursor_git
+	mkdir cursor
+
+2. cd into the cursor_git folder.
+	cd cursor/
+
+3. Create a file called first.py.
+	touch first.py
+
+4. Add first.py to the staging area.
+	git add first.py 
+
+5. Commit with the message "adding first.py".
+	git commit -m 'adding first.py'
+
+	output:
+	[master 370c1d7] adding first.py
+	 1 file changed, 0 insertions(+), 0 deletions(-)
+	 create mode 100644 cursor/first.py
+
+6. Check out your commit with git log.
+	git log
+
+	output:
+	commit 370c1d7097e1ddc6ead1d00ef63f9a11344f30aa (HEAD -> master)
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Thu Apr 29 11:17:13 2021 +0300
+
+	    adding first.py
+
+	commit 6cafe1280468a8a146069ed009b6b9af3042e0ff (origin/master)
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Wed Apr 28 17:54:52 2021 +0300
+
+	    Adding Linux part
+
+7. Create another file called second.py.
+	touch second.py
+
+8. Add second.py to the staging area.
+	git add second.py 
+
+9. Commit with the message "adding second.py"
+	git commit -m 'adding second.py'
+
+	output:
+	[master 80cca63] adding second.py
+	 1 file changed, 0 insertions(+), 0 deletions(-)
+	 create mode 100644 cursor/second.py
+
+10. Remove the first.py file
+	rm first.py 
+
+11. Add this change to the staging area
+	git add first.py 
+
+12. Commit with the message "removing first.py"
+	git commit -m 'removing first.py'
+
+	output:
+	[master 8c6fd99] removing first.py
+	 1 file changed, 0 insertions(+), 0 deletions(-)
+	 delete mode 100644 cursor/first.py
+
+13. Check out your commits using git log
+	git log
+
+	output:
+	commit 8c6fd996b2a62b204a58999b2a75f273c77b9f43 (HEAD -> master)
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Thu Apr 29 11:19:24 2021 +0300
+
+	    removing first.py
+
+	commit 80cca630ac460bd76008e0b072d1040769f34227
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Thu Apr 29 11:18:41 2021 +0300
+
+	    adding second.py
+
+	commit 370c1d7097e1ddc6ead1d00ef63f9a11344f30aa
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Thu Apr 29 11:17:13 2021 +0300
+
+	    adding first.py
+
+	commit 6cafe1280468a8a146069ed009b6b9af3042e0ff (origin/master)
+	Author: Vadym-Skipa <lisove2012@gmailcom>
+	Date:   Wed Apr 28 17:54:52 2021 +0300
+
+	    Adding Linux part
+
+14. Push your changes to remote
+	git push origin master 
+
+	output:
+		Enumerating objects: 10, done.
+	Counting objects: 100% (10/10), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (7/7), done.
+	Writing objects: 100% (9/9), 871 bytes | 871.00 KiB/s, done.
+	Total 9 (delta 3), reused 0 (delta 0)
+	remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+	To github.com:Vadym-Skipa/HW1-Linux_and_Git.git
+	   6cafe12..8c6fd99  master -> master
+
+15. Create new branch from master called `first` (without checkout)
+	git branch first
+
+16. Create one more branch from master called `second` (with checkout to it)
+	git checkout -b second
+
+	output:
+	Switched to a new branch 'second'
+
+17. Change the second.py file with "print('Hello')" string.
+	echo "print('Hello')" > second.py 
+
+18. Stash you changes and checkout to first branch.
+	git stash
+	git checkout first
+
+	output:
+	Saved working directory and index state WIP on second: 8c6fd99 removing first.py
+
+19. Checkout back and Stash Pop the changes.
+	git checkout second && git stash pop
+
+	output:
+	Switched to branch 'second'
+	On branch second
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git restore <file>..." to discard changes in working directory)
+		modified:   second.py
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	Dropped refs/stash@{0} (9eb6db8ea16a2fb1b98d143778060b8cd417963e)
+
+20. Add your changes to the staging area
+	git add second.py 
+
+21. Commit with the message "Changing second.py".
+	git commit -m 'Changing second.py'
+
+	output:
+	[second 08215fe] Changing second.py
+	 1 file changed, 1 insertion(+)
+
+22. Push your changes to remote
+	git push origin second 
+
+	output:
+	Enumerating objects: 7, done.
+	Counting objects: 100% (7/7), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (2/2), done.
+	Writing objects: 100% (4/4), 341 bytes | 341.00 KiB/s, done.
+	Total 4 (delta 1), reused 0 (delta 0)
+	remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+	remote: 
+	remote: Create a pull request for 'second' on GitHub by visiting:
+	remote:      https://github.com/Vadym-Skipa/HW1-Linux_and_Git/pull/new/second
+	remote: 
+	To github.com:Vadym-Skipa/HW1-Linux_and_Git.git
+	 * [new branch]      second -> second
+
+23. Checkout to first branch.
+	git checkout first
+
+	output:
+	Switched to branch 'first'
+
+24. Change the second.py file with print("Cursor") string.
+	echo 'print("Cursor")' > second.py 
+
+25. Add your changes to the staging area
+	git add second.py 
+
+26. Commit with the message "Changing second.py".
+	git commit -m 'Changing second.py'
+
+	output:
+	[first 71d1f65] Changing second.py
+	 1 file changed, 1 insertion(+)
+
+27. Push your changes to remote
+	git push origin first 
+
+	output:
+	Enumerating objects: 7, done.
+	Counting objects: 100% (7/7), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (2/2), done.
+	Writing objects: 100% (4/4), 339 bytes | 339.00 KiB/s, done.
+	Total 4 (delta 1), reused 0 (delta 0)
+	remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+	remote: 
+	remote: Create a pull request for 'first' on GitHub by visiting:
+	remote:      https://github.com/Vadym-Skipa/HW1-Linux_and_Git/pull/new/first
+	remote: 
+	To github.com:Vadym-Skipa/HW1-Linux_and_Git.git
+	 * [new branch]      first -> first
+
+28. Checkout to master branch
+	git checkout master 
+
+	output:
+	Switched to branch 'master'
+
+29*. Merge the changes from second branch
+	git merge second 
+
+	output:
+	Updating 8c6fd99..08215fe
+	Fast-forward
+	 cursor/second.py | 1 +
+	 1 file changed, 1 insertion(+)
+
+30*. Then merge the changes from first branch
+	git merge first 
+
+	output:
+	Auto-merging cursor/second.py
+	CONFLICT (content): Merge conflict in cursor/second.py
+	Automatic merge failed; fix conflicts and then commit the result.
+
+31*. Resolve conflict and push the changes to remote
+	subl second.py 
+	git add second.py 
+	git commit -m 'resolving conflict'
+	git push origin master 
+
+	output:
+	[master a0e183a] resolving conflict
+	Enumerating objects: 10, done.
+	Counting objects: 100% (10/10), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (2/2), done.
+	Writing objects: 100% (4/4), 371 bytes | 371.00 KiB/s, done.
+	Total 4 (delta 1), reused 0 (delta 0)
+	remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+	To github.com:Vadym-Skipa/HW1-Linux_and_Git.git
+	   8c6fd99..a0e183a  master -> master
